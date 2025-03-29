@@ -613,7 +613,7 @@ class GameComponent extends HTMLElement {
       cardElement.innerHTML = `
         <div class="card-number">${card.number}</div>
         <div class="card-image">
-          <img src="/images/champions/${card.number}.png" alt="Card ${card.number}">
+          <img src="/images/champions/${card.number}.jpg" alt="Card ${card.number}">
         </div>
         <div class="card-element" title="${card.element}">${this.elementIcons[card.element]}</div>
       `;
@@ -879,7 +879,7 @@ class GameComponent extends HTMLElement {
     enemyContainer.innerHTML = `
       <div class="enemy-card fade-in">
         <div class="enemy-image">
-          <img src="/images/monsters/${this.enemy.name.toLowerCase().replace(" ", "_")}.png" alt="Enemy">
+          <img src="/images/monsters/${this.enemy.name.toLowerCase().replace(" ", "_")}.jpg" alt="Enemy">
         </div>
         <h3>${this.enemy.name}</h3>
         <div class="level-badge">Level ${this.enemy.level}</div>
