@@ -2,6 +2,10 @@ class GameComponent extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
+    const script = document.getElementById('game-script');
+    const scriptUrl = script.src;
+    const basePath = scriptUrl.substring(0, scriptUrl.lastIndexOf('/') + 1);
+    this.basePath = basePath;
 
     // Define the game state
     this.player = {
@@ -613,7 +617,7 @@ class GameComponent extends HTMLElement {
       cardElement.innerHTML = `
         <div class="card-number">${card.number}</div>
         <div class="card-image">
-          <img src="/images/champions/${card.number}.jpg" alt="Card ${card.number}">
+          <img src="${this.basePath}/images/champions/${card.number}.jpg" alt="Card ${card.number}">
         </div>
         <div class="card-element" title="${card.element}">${this.elementIcons[card.element]}</div>
       `;
@@ -879,7 +883,7 @@ class GameComponent extends HTMLElement {
     enemyContainer.innerHTML = `
       <div class="enemy-card fade-in">
         <div class="enemy-image">
-          <img src="/images/monsters/${this.enemy.name.toLowerCase().replace(" ", "_")}.jpg" alt="Enemy">
+          <img src="${this.basePath}/images/monsters/${this.enemy.name.toLowerCase().replace(" ", "_")}.jpg" alt="Enemy">
         </div>
         <h3>${this.enemy.name}</h3>
         <div class="level-badge">Level ${this.enemy.level}</div>
